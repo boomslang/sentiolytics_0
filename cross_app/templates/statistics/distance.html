@@ -1,0 +1,74 @@
+{% extends "base_statistics.html" %}
+
+{% block sidebar-left %}
+    <div class="box" id="player_box1">
+        <form action="">
+            <h3><label>
+                <input type="checkbox" name="cb_all_1" class="check_all" id="cb1">
+            </label>TEAM 1</h3>
+        </form>
+        <form action="" class="player_list" id="players_team1">
+            {#            <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>#}
+            {#            <input type="checkbox" name="vehicle" value="Car">I have a car#}
+        </form>
+    </div>
+{% endblock%}
+{% block sidebar-right %}
+    <div class="box" id="player_box2">
+        <form action="">
+            <h3><label>
+                <input type="checkbox" name="cb_all_2" class="check_all" id="cb2">
+            </label>TEAM 2</h3>
+        </form>
+        <form action="" class="player_list" id="players_team2">
+            {#            <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>#}
+            {#            <input type="checkbox" name="vehicle" value="Car">I have a car#}
+        </form>
+    </div>
+
+    {#    <br class="clearfix">#}
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <div id="chart_div"></div>
+        <br>
+
+        <div class="layout-slider" style="width: 100%">
+            <span style="display: inline-block; width: 400px; padding: 0 5px;"><input id="Slider1" type="slider" name="price" value="0;90" /></span>
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            jQuery("#Slider1").slider({ from: 0, to: 90, step: 1, smooth: true, round: 0, dimension: "", skin: "plastic", callback: function() { update_chart()}});
+        </script>
+
+
+        {#        <div class="layout-slider" style="width: 100%">#}
+        {#            <input id="Slider" type="slider" name="Time interval" value="0;90" style="display: none;">#}
+        {#        </div>#}
+        {#        <script type="text/javascript" charset="utf-8">#}
+        {#            jQuery("#Slider").slider({ from: 0, to: 90, step: 91, smooth: true, round: 0, dimension: "&nbsp;$", skin: "plastic" });#}
+        {#        </script>#}
+    </div>
+    {#    <br class="clearfix">#}
+{% endblock %}
+
+{#{% block scripts %}#}
+{#    <script type="text/javascript" src="{{ STATIC_URL }}js/test.js"></script>#}
+{#    <script type="text/javascript" src="https://www.google.com/jsapi"></script>#}
+{#    <script type="text/javascript" src="{{ STATIC_URL }}js/gcharts.js"></script>#}
+{##}
+{##}
+{#    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jslider/css/jslider.css" charset="utf-8" />#}
+{#    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jslider/css/jslider.plastic.css" charset="utf-8" />#}
+{##}
+{##}
+{#    <script src="{{ STATIC_URL }}jslider/js/jshashtable-2.1_src.js" type="text/javascript" charset="utf-8"></script>#}
+{#    <script src="{{ STATIC_URL }}jslider/js/jquery.numberformatter-1.2.3.js" type="text/javascript" charset="utf-8"></script>#}
+{#    <script src="{{ STATIC_URL }}jslider/js/tmpl.js" type="text/javascript" charset="utf-8"></script>#}
+{#    <script src="{{ STATIC_URL }}jslider/js/jquery.dependClass-0.1.js" type="text/javascript" charset="utf-8"></script>#}
+{#    <script src="{{ STATIC_URL }}jslider/js/draggable-0.1.js" type="text/javascript" charset="utf-8"></script>#}
+{#    <script src="{{ STATIC_URL }}jslider/js/jquery.slider.js" type="text/javascript" charset="utf-8"></script>#}
+{##}
+{#    <script src="{{ STATIC_URL }}js/slider.js" type="text/javascript" charset="utf-8"></script>#}
+{##}
+{#{% endblock %}#}

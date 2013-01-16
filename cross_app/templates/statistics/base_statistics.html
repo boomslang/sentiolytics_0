@@ -1,0 +1,24 @@
+{#TO BE REMOVED#}
+{% block scripts %}{% endblock %}
+<div>
+    <div class="sidebar" id="sidebar-left">
+        {% block sidebar-left %}
+            <br class="clearfix">
+        {% endblock %}
+
+    </div>
+    <div class="sidebar" id="sidebar-right">
+        {% block sidebar-right %}
+            <br class="clearfix">
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}
+            <p>This block should be overwritten.</p>
+        {% endblock %}
+    </div>
+
+    <br class="clearfix">
+
+</div>

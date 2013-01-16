@@ -1,0 +1,114 @@
+{% load url from future %}
+{% load static %}
+{% get_static_prefix as STATIC_URL %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Sentiolytics{% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/menu.css" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/vertical_menu.css" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css" charset="utf-8" />
+
+    <script language="javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
+
+{#    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>#}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+    <script src="{{ STATIC_URL }}js/main.js"></script>
+
+    {% block head %}{% endblock %}
+
+</head>
+<body>
+    <div id='cssmenu'>
+        <ul>
+            <li class='active '><a href='/'><span>Home</span></a></li>
+            <li class='has-sub '><a href='#'><span>Leagues</span></a>
+                <ul>
+                    {% for id, name in leagues %}
+                        <li><a class='league_item' id='{{ id }}'><span>{{ name}}</span></a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li><a class="menu_button" id="matches_button"><span>Matches</span></a></li>
+            <li><a class="menu_button" id="players_button"><span>Players</span></a></li>
+            <li><a class="menu_button" id="comparison_button"><span>Comparison</span></a></li>
+            <li class='has-sub '><a href='/'><span>Matches</span></a>
+                <ul id="match_list">
+
+                </ul>
+            </li>
+            <li class='has-sub '><a href='#'><span>Dummy</span></a>
+                <ul>
+                    <li class='has-sub '><a href='#'><span>Product 1</span></a>
+                        <ul>
+                            <li><a href='#'><span>Sub Item</span></a></li>
+                            <li><a href='#'><span>Sub Item</span></a></li>
+                        </ul>
+                    </li>
+                    <li class='has-sub '><a href='#'><span>Product 2</span></a>
+                        <ul>
+                            <li><a href='#'><span>Sub Item</span></a></li>
+                            <li><a href='#'><span>Sub Item</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href='#'><span>Dummy</span></a></li>
+            <li><a href='#'><span>Dummy</span></a></li>
+        </ul>
+    </div>
+
+    <div id='verticalmenu'>
+        <ul>
+            <li class='has-sub '><a href='#'><span>Performance</span></a>
+                <ul>
+{#                    <li class='has-sub '><a href='#'><span>Product 1</span></a>#}
+{#                        <ul>#}
+{#                            <li><a href='#'><span>Sub Item</span></a></li>#}
+{#                            <li><a href='#'><span>Sub Item</span></a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+                    <li id="distance_metric"><a><span>Distance</span></a></li>
+                </ul>
+            </li>
+            <li><a href='#'><span>dummy</span></a></li>
+            <li><a href='#'><span>dummy</span></a></li>
+        </ul>
+    </div>
+    <div id="wrapper">
+{#        <div id="header">#}
+{#        </div>#}
+    <div id="page">
+        {% block body %}{% endblock %}
+    </div>
+{#        <div id="page">#}
+{#            <div class="sidebar" id="sidebar-left">#}
+{#                {% block sidebar-left %}#}
+{#                    <br class="clearfix">#}
+{#                {% endblock %}#}
+{##}
+{#            </div>#}
+{#            <div class="sidebar" id="sidebar-right">#}
+{#                {% block sidebar-right %}#}
+{#                    <br class="clearfix">#}
+{#                {% endblock %}#}
+{#            </div>#}
+{##}
+{#            <div id="content">#}
+{#                {% block content %}#}
+{#                    <p>This block should be overwritten.</p>#}
+{#                {% endblock %}#}
+{#            </div>#}
+{##}
+{#            <br class="clearfix">#}
+{#        </div>#}
+
+    </div>
+
+</body>
+</html>

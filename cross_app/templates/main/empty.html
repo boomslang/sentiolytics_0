@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+
+{% block head %}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="{{ STATIC_URL }}js/load_gcharts.js" type="text/javascript" charset="utf-8"></script>
+    {#    <script type="text/javascript" src="{{ STATIC_URL }}js/gcharts.js"></script>#}
+    {##}
+    {##}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jslider/css/jslider.css" charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jslider/css/jslider.plastic.css" charset="utf-8" />
+    {##}
+    {##}
+    <script src="{{ STATIC_URL }}jslider/js/jshashtable-2.1_src.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}jslider/js/jquery.numberformatter-1.2.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}jslider/js/tmpl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}jslider/js/jquery.dependClass-0.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}jslider/js/draggable-0.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}jslider/js/jquery.slider.js" type="text/javascript" charset="utf-8"></script>
+    {##}
+    {#    <script src="{{ STATIC_URL }}js/slider.js" type="text/javascript" charset="utf-8"></script>#}
+    {##}
+{% endblock %}
+
+{% block body %}
+    <span>YES</span>
+    <a class="btn btn-info btn-small" href="#">Info</a>
+{% endblock %}
