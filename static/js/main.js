@@ -7,8 +7,8 @@ $(document).ready(function(){
 
 function load_view(view_name)
 {
-//    $("#page").load("/ajax_load_" + view_name +"/", load_scripts(view_name))
-    $("#page").load("/ajax_load_match_select/", load_scripts(view_name))
+    $("#page").load("/ajax_load_" + view_name +"/", load_scripts(view_name))
+//    $("#page").load("/ajax_load_match_select/", load_scripts(view_name))
             .css('visibility','visible');
 
 }
