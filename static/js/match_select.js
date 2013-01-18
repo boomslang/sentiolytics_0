@@ -6,6 +6,10 @@ $(document).ready(function(){
         alert('ahoy2');
     });
 //    clear_page();
-
+//    $('#page').on('change', '#msw_select_league', function () {
+//        $("select option:selected").each(function () {
+//            alert($(this).attr('league_id'))
+//        });
+//    });
 //    alert('test2');
 });

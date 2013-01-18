@@ -152,6 +152,16 @@ ul {
     /*overflow: scroll;*/
 }
 
+#content-single {
+    width: 850px;
+    margin: 0 0 0 5px;
+    /*background: #000000;*/
+    padding: 0;
+    overflow: hidden;
+    /*float: right;*/
+    /*overflow: scroll;*/
+}
+
 #footer {
 	padding: 40px 0 95px 0;
 	text-align: center;
