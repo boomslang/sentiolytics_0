@@ -1,3 +1,32 @@
+$(document).ready(function(){
+//    loadPlayers();
+//    fillDrawChart([]);
+
+
+    $('#page').on('click', '#mw_tab a', function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+    $('#page').on('ready', '#', function (e) {
+        alert('asd')
+    });
+//    $('#Slider1').slider().onstatechange(function(){
+//        update_chart();
+//    });
+});
+
+function load_mw_tabs()
+{
+    $('#mw_tab_summary').empty()
+        .load('ajax_load_mw_tab_summary');
+    $('#mw_tab_chalkboard').empty()
+        .load('ajax_load_mw_tab_chalkboard');
+    $('#mw_tab_radar').empty()
+        .load('ajax_load_mw_tab_radar');
+    $('#mw_tab_performance').empty()
+        .load('ajax_load_mw_tab_performance');
+}
+
 // Load the Visualization API and the piechart package.
 google.load('visualization', '1.0', {'packages':['corechart']});
 
@@ -5,13 +34,6 @@ google.load('visualization', '1.0', {'packages':['corechart']});
 //google.setOnLoadCallback(drawChart);
 
 
-$(document).ready(function(){
-    loadPlayers();
-    fillDrawChart([]);
-//    $('#Slider1').slider().onstatechange(function(){
-//        update_chart();
-//    });
-});
 
 function fillDrawChart(returned_data) {
     // Create the data table.

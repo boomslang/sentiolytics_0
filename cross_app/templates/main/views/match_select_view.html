@@ -1,26 +1,53 @@
 {% extends "base_view.html" %}
 
 {%  block content %}
+    <div class="row">
+        <div class="span4"><label> Select League</label></div>
+        <div class="span4"><label> Select Match</label></div>
 
-    <div class="box" id="box-left">
-        <label> Select League
-            <div class="controls">
-                <select id="msw_select_league">
-                    <option class="msw_league_option">Select League</option>
-                </select>
+        <div class="row">
+            <div class="span4">
+                <div class="controls">
+                    <select id="msw_select_league">
+                        <option class="msw_league_option">Select League</option>
+                    </select>
+                </div>
             </div>
-        </label>
-    </div>
-    <div class="box" id="box-right">
-        <label> Select Match
-            <div class="controls">
-                <select id="msw_select_match">
-                    <option class="msw_match_option">Select league first</option>
-                </select>
+            <div class="span4">
+                <div class="controls">
+                    <select id="msw_select_match">
+                        <option class="msw_match_option">Select league first</option>
+                    </select>
+                </div>
             </div>
-        </label>
+            <div class="span1 offset2">
+                <a id="match_select_button" class="btn btn-info btn-small">GO!</a>
+            </div>
+        </div>
     </div>
-    <br class="clearfix">
-    <span>This page is to be constructed. Press the button to load a match.  </span>
-    <a id="match_select_button" class="btn btn-info btn-small">GO!</a>
+
+
+
+
+{#    <div class="span4">#}
+{#        <label> Select League#}
+{#            <div class="controls">#}
+{#                <select id="msw_select_league">#}
+{#                    <option class="msw_league_option">Select League</option>#}
+{#                </select>#}
+{#            </div>#}
+{#        </label>#}
+{#    </div>#}
+{#    <div class="span4">#}
+{#        <label> Select Match#}
+{#            <div class="controls">#}
+{#                <select id="msw_select_match">#}
+{#                    <option class="msw_match_option">Select league first</option>#}
+{#                </select>#}
+{#            </div>#}
+{#        </label>#}
+{#    </div>#}
+{#    <div class="span3">#}
+{#        <a id="match_select_button" class="btn btn-info btn-small">GO!</a>#}
+{#    </div>#}
 {% endblock %}

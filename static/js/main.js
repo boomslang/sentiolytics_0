@@ -26,7 +26,12 @@ function request_load_leagues()
 
 function load_leagues(data)
 {
-    $("#msw_select_league").empty();
+    $("#msw_select_league").empty()
+        .append(
+        $('<option>')
+            .append('Select a league')
+        );
+
     for(var i = 0; i < data.length; i++)
     {
         $("#msw_select_league")
@@ -39,20 +44,67 @@ function load_leagues(data)
     }
     $("#msw_select_league").change(function () {
         $("#msw_select_league option:selected").each(function () {
-            alert($(this).attr('league_id'))
-    });
-})
+            var league_id = $(this).attr('league_id');
+            if(league_id != undefined )
+            {
+                request_load_matches(league_id);
+//                alert($(this).attr('league_id'))
+            }
+        });
+    })
 
 }
 
-function load_view(view_name)
+function request_load_matches(data_to_send)
+{
+    $.ajax({
+        url: '/ajax_load_matches/',
+        type: 'GET',
+        data: {sendValue : data_to_send},
+        success: function(data){
+            fill_msw_select_match(data)
+        },
+        dataType: 'json'
+    });
+}
+
+
+function fill_msw_select_match(data)
 {
 
-//    $("#page").load("/ajax_load_" + view_name +"/", load_script(view_name))
-    $("#page").load("/ajax_load_" + view_name +"/")
-        .css('visibility','visible');
+    $("#msw_select_match").empty()
+        .append(
+        $('<option>')
+            .append('Select a match')
+    );
+    for(var i = 0; i < data.length; i++)
+    {
+        $("#msw_select_match")
+            .append(
+            $('<option>')
+                .attr("class", "msw_match_option")// with given name
+                .attr("match_id", data[i][0])
+                .append(data[i][1] + " - " + data[i][2])
+        )
+    }
+}
+function load_view()
+{
+    if(arguments.length == 1)
+    {
+    //    $("#page").load("/ajax_load_" + view_name +"/", load_script(view_name))
+        $("#page").load("/ajax_load_" + arguments[0] +"/")
+            .css('visibility','visible');
+    }
+    else if(arguments.length == 2)
+    {
+        $("#page").load("/ajax_load_" + arguments[0] +"/", load_script(arguments[1]))
+//        $("#page").load("/ajax_load_" + view_name +"/")
+            .css('visibility','visible');
+    }
 
 }
+
 
 function load_script(view_name)
 {
