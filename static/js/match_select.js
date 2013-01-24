@@ -5,6 +5,8 @@ $(document).ready(function(){
         load_view("match","match");
 //        alert('ahoy2');
 
+//         $('#msw_select_match').find(":selected").attr('match_id')
+
     });
 //    clear_page();
 //    $('#page').on('change', '#msw_select_league', function () {

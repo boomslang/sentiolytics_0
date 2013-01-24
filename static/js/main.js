@@ -3,11 +3,11 @@ $(document).ready(function(){
     $('#matches_button').click(function()    {
         clear_page();
 //        alert('t')
-        load_view("match_select");
+        load_view("match_select","match_select");
         request_load_leagues();
     });
 
-    load_script("match_select");
+//    load_script("match_select");
 //    load_script("match");
 });
 
@@ -43,7 +43,7 @@ function load_leagues(data)
             )
     }
     $("#msw_select_league").change(function () {
-        $("#msw_select_league option:selected").each(function () {
+        $("#msw_select_league option:selected").each(function () { // TODO: (murat) $(this).find(":selected").
             var league_id = $(this).attr('league_id');
             if(league_id != undefined )
             {
@@ -98,9 +98,14 @@ function load_view()
     }
     else if(arguments.length == 2)
     {
-        $("#page").load("/ajax_load_" + arguments[0] +"/", load_script(arguments[1]))
-//        $("#page").load("/ajax_load_" + view_name +"/")
-            .css('visibility','visible');
+        var script_name = arguments[1];
+        $.get("/ajax_load_" + arguments[0] +"/", function(data) {
+            $("#page").html(data);
+        })
+            .done(function() {
+                load_script(script_name);
+//                alert(script_name);
+            })
     }
 
 }

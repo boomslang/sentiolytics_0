@@ -2,17 +2,24 @@ $(document).ready(function(){
 //    loadPlayers();
 //    fillDrawChart([]);
 
-
+//    alert('$')
     $('#page').on('click', '#mw_tab a', function (e) {
         e.preventDefault();
         $(this).tab('show');
     });
-    $('#page').on('ready', '#', function (e) {
-        alert('asd')
+//    $('#page').on('ready', '#mw_tab', function (e) {
+//        alert('asd')
+//    });
+    $('#mw_tab').ready(function() {
+        load_mw_tabs();
     });
 //    $('#Slider1').slider().onstatechange(function(){
 //        update_chart();
 //    });
+
+    $('#mw_team_1').empty()
+        .append('Kasimpasa');
+
 });
 
 function load_mw_tabs()
