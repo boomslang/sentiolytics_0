@@ -8,7 +8,7 @@ $(document).ready(function(){
     });
 
     load_script("match_select");
-    load_script("match");
+//    load_script("match");
 });
 
 function request_load_leagues()
