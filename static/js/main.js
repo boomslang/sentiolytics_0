@@ -4,7 +4,7 @@ $(document).ready(function(){
         clear_page();
 //        alert('t')
         load_view("match_select","match_select");
-        request_load_leagues();
+
     });
 
 //    load_script("match_select");

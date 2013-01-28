@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    request_load_leagues();
     $('#page').on('click', '#match_select_button', function () {
 //    $("#match_select_button").click(function()    {
         load_view("match","match");
