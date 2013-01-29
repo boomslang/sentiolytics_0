@@ -7,9 +7,22 @@ $(document).ready(function(){
 
     });
 
+    $('#players_button').click(function()    {
+        clear_page();
+//        alert('t')
+        load_view("player_select","player_select");
+
+    });
+
 //    load_script("match_select");
 //    load_script("match");
 });
+
+function add_to_session(session_data)
+{
+//    alert(session_data.teams);
+    $.get('ajax_add_to_session',session_data)
+}
 
 function request_load_leagues()
 {
@@ -84,6 +97,7 @@ function fill_msw_select_match(data)
             $('<option>')
                 .attr("class", "msw_match_option")// with given name
                 .attr("match_id", data[i][0])
+                .attr("teams", data[i][1] + " - " + data[i][2])
                 .append(data[i][1] + " - " + data[i][2])
         )
     }

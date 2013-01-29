@@ -1,7 +1,7 @@
 $(document).ready(function(){
 //    loadPlayers();
 //    fillDrawChart([]);
-
+    req_load_mw_score();
 //    alert('$')
     $('#page').on('click', '#mw_tab a', function (e) {
         e.preventDefault();
@@ -17,10 +17,34 @@ $(document).ready(function(){
 //        update_chart();
 //    });
 
-    $('#mw_team_1').empty()
-        .append('Kasimpasa');
 
 });
+
+function req_load_mw_score()
+{
+    $.get('ajax_mw_load_score',function(data) {load_mw_score(data)},'json');
+//    $.ajax({                                                      // Works just fine as .get() - Murat
+//        url: 'ajax_mw_load_score',
+//        type: 'GET',
+////        data: {sendValue:data_to_send},
+//        success: function(data){
+//            load_mw_score(data)
+//        },
+//        dataType: 'json'
+//    });
+}
+
+function load_mw_score(data)
+{
+    var teams = data[0].split(' - ');
+
+    $('#mw_team_1').empty()
+        .append(teams[0]);
+    $('#mw_team_2').empty()
+        .append(teams[1]);
+    $('#mw_score').empty()
+        .append(data[1]);
+}
 
 function load_mw_tabs()
 {
