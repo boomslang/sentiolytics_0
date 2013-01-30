@@ -48,13 +48,14 @@
     <div id='cssmenu'>
         <ul>
             <li class='active '><a href='/'><span>Home</span></a></li>
-            <li class='has-sub '><a href='#'><span>Leagues</span></a>
-                <ul>
-                    {% for id, name in leagues %}
-                        <li><a class='league_item' id='{{ id }}'><span>{{ name}}</span></a></li>
-                    {% endfor %}
-                </ul>
-            </li>
+            <li><a class="teams_button" id="teams_button"><span>Teams</span></a></li>
+{#            <li class='has-sub '><a href='#'><span>Leagues</span></a>#}
+{#                <ul>#}
+{#                    {% for id, name in leagues %}#}
+{#                        <li><a class='league_item' id='{{ id }}'><span>{{ name}}</span></a></li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{#            </li>#}
             <li><a class="menu_button" id="matches_button"><span>Matches</span></a></li>
             <li><a class="menu_button" id="players_button"><span>Players</span></a></li>
             <li><a class="menu_button" id="comparison_button"><span>Comparison</span></a></li>

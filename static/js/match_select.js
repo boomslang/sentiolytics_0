@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    request_load_leagues();
+    request_load_leagues("msw");
 //    $('#page').on('click', '#match_select_button', function () {
     $("#match_select_button").click(function()    {
         $.get('ajax_add_to_session',{

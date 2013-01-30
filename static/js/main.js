@@ -1,17 +1,13 @@
 $(document).ready(function(){
 
     $('#matches_button').click(function()    {
-
-//        alert('t')
         load_view("match_select","match_select");
-
     });
-
+    $('#teams_button').click(function()    {
+        load_view("team_select","team_select");
+    });
     $('#players_button').click(function()    {
-
-//        alert('t')
         load_view("player_select","player_select");
-
     });
 
 //    load_script("match_select");
@@ -34,22 +30,24 @@ $(document).ready(function(){
 //    }
 //}
 
-function request_load_leagues()
+function request_load_leagues(prefix)
 {
     $.ajax({
         url: '/ajax_load_leagues/',
         type: 'GET',
         data: {sendValue:'test'},
         success: function(data){
-            load_leagues(data)
+            load_leagues(data,prefix)
         },
         dataType: 'json'
     });
 }
 
-function load_leagues(data)
+function load_leagues(data,prefix)
 {
-    $("#msw_select_league").empty()
+    var select_name = "#" + prefix + "_select_league";
+    var option_name = "#" + prefix + "_league_option";
+    $(select_name).empty()
         .append(
         $('<option>')
             .append('Select a league')
@@ -57,20 +55,20 @@ function load_leagues(data)
 
     for(var i = 0; i < data.length; i++)
     {
-        $("#msw_select_league")
+        $(select_name)
             .append(
             $('<option>')
-                .attr("class", "msw_league_option")// with given name
+                .attr("class", option_name)// with given name
                 .attr("league_id", data[i][0])
                 .append(data[i][1])
             )
     }
-    $("#msw_select_league").change(function () {
-        $("#msw_select_league option:selected").each(function () { // TODO: (murat) $(this).find(":selected").
+    $(select_name).change(function () {
+        $(select_name +" option:selected").each(function () { // TODO: (murat) $(this).find(":selected").
             var league_id = $(this).attr('league_id');
             if(league_id != undefined )
             {
-                request_load_matches(league_id);
+                request_load_matches(league_id, prefix);
 //                alert($(this).attr('league_id'))
             }
         });
@@ -78,34 +76,35 @@ function load_leagues(data)
 
 }
 
-function request_load_matches(data_to_send)
+function request_load_matches(data_to_send, prefix)
 {
     $.ajax({
         url: '/ajax_load_matches/',
         type: 'GET',
         data: {sendValue : data_to_send},
         success: function(data){
-            fill_msw_select_match(data)
+            fill_select_match(data,prefix)
         },
         dataType: 'json'
     });
 }
 
 
-function fill_msw_select_match(data)
+function fill_select_match(data,prefix)
 {
-
-    $("#msw_select_match").empty()
+    var select_name = "#" + prefix + "_select_match";
+    var option_name = "#" + prefix + "_match_option";
+    $(select_name).empty()
         .append(
         $('<option>')
             .append('Select a match')
     );
     for(var i = 0; i < data.length; i++)
     {
-        $("#msw_select_match")
+        $(select_name)
             .append(
             $('<option>')
-                .attr("class", "msw_match_option")// with given name
+                .attr("class", option_name)// with given name
                 .attr("match_id", data[i][0])
                 .attr("teams", data[i][1] + " - " + data[i][2])
                 .append(data[i][1] + " - " + data[i][2])
