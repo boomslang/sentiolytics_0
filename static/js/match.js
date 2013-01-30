@@ -1,7 +1,7 @@
 $(document).ready(function(){
 //    loadPlayers();
 //    fillDrawChart([]);
-    req_load_mw_score();
+
 //    alert('$')
     $('#page').on('click', '#mw_tab a', function (e) {
         e.preventDefault();
@@ -13,6 +13,8 @@ $(document).ready(function(){
     $('#mw_tab').ready(function() {
         load_mw_tabs();
     });
+
+    req_load_mw_score();
 //    $('#Slider1').slider().onstatechange(function(){
 //        update_chart();
 //    });
@@ -38,11 +40,11 @@ function load_mw_score(data)
 {
     var teams = data[0].split(' - ');
 
-    $('#mw_team_1').empty()
+    $('.mw_team_1').empty()
         .append(teams[0]);
-    $('#mw_team_2').empty()
+    $('.mw_team_2').empty()
         .append(teams[1]);
-    $('#mw_score').empty()
+    $('.mw_score').empty()
         .append(data[1]);
 }
 

@@ -1,14 +1,14 @@
 $(document).ready(function(){
 
     $('#matches_button').click(function()    {
-        clear_page();
+
 //        alert('t')
         load_view("match_select","match_select");
 
     });
 
     $('#players_button').click(function()    {
-        clear_page();
+
 //        alert('t')
         load_view("player_select","player_select");
 
@@ -18,11 +18,21 @@ $(document).ready(function(){
 //    load_script("match");
 });
 
-function add_to_session(session_data)
-{
-//    alert(session_data.teams);
-    $.get('ajax_add_to_session',session_data)
-}
+//function add_to_session()
+//{
+//    if(arguments.length == 1)
+//    {
+//        $.get('ajax_add_to_session',arguments[0])
+//    }
+//    else if(arguments.length == 2)
+//    {
+//        $.get('ajax_add_to_session',arguments[0])
+//            .done(function() {
+//                arguments[1];
+//            })
+//
+//    }
+//}
 
 function request_load_leagues()
 {
@@ -104,6 +114,8 @@ function fill_msw_select_match(data)
 }
 function load_view()
 {
+    $("#page").empty();
+
     if(arguments.length == 1)
     {
     //    $("#page").load("/ajax_load_" + view_name +"/", load_script(view_name))
@@ -127,37 +139,5 @@ function load_view()
 
 function load_script(view_name)
 {
-//    alert('t');
     $.getScript(STATIC_URL + 'js/' + view_name + '.js');
-//    if(view_name == "match_select")
-//    {
-//        $('#page').on('click', '#match_select_button', function () {
-////    $("#match_select_button").click(function()    {
-//            load_view("match");
-//            alert('ahoy2');
-//        });
-////    clear_page();
-//        $('#page').on('change', '#msw_select_league', function () {
-//            $("select option:selected").each(function () {
-//                alert($(this).text())
-//            });
-//        });
-//
-//
-//    }
-//    else if(view_name == "match")
-//    {
-//        $.getScript(STATIC_URL + 'js/match.js');
-//    }
-
-}
-
-function clear_page()
-{
-//    var node = $("#page");
-//    while (node.hasChildNodes()) {
-//        node.removeChild(node.lastChild);
-//    }
-    $("#page").empty();
-//        .css('visibility', 'hidden'); // TODO : Sonradan unutma. (Murat)
 }

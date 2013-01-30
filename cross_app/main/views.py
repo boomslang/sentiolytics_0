@@ -87,7 +87,7 @@ def ajax_mw_load_score(request):
     data = (teams, score)
     return HttpResponse(simplejson.dumps(data), mimetype='application/json')
 
-def load_match_score(match_id): # TODO: (murat) Retrieve the score for the match.
+def load_match_score(match_id): # TODO: (murat) Retrieve the score for the match. Waiting for the db integration.
     return '9 - 7'
 
 def ajax_add_to_session(request):
