@@ -65,3 +65,42 @@ def ajax_load_matches(request):
         except:
             print match
     return HttpResponse(simplejson.dumps(data), mimetype='application/json')
+
+def get_teams(match_id):
+
+    sql_string = "SELECT HOME_TEAM_ID, VISITOR_TEAM_ID FROM sentiosp_drupal6.tf_match WHERE MATCH_ID = " + str(match_id)
+
+    #    print sql_string
+    cursor = connection.cursor()
+    cursor.execute(sql_string)
+    data = cursor.fetchall()
+
+    return data
+
+def ajax_mw_load_score(request):
+    if not request.is_ajax():
+        raise Http404
+    match_id = request.session.get('match_id',None)
+
+    score = load_match_score(match_id)
+    teams = request.session.get('teams',None)
+    data = (teams, score)
+    return HttpResponse(simplejson.dumps(data), mimetype='application/json')
+
+def load_match_score(match_id): # TODO: (murat) Retrieve the score for the match.
+    return '9 - 7'
+
+def ajax_add_to_session(request):
+    if not request.is_ajax():
+        raise Http404
+
+    data = request.GET.get.im_self
+    for key,value in data.items():
+        try:
+            del request.session[key]
+        except KeyError:
+            pass
+        request.session[key] = value
+
+    return HttpResponse(mimetype='application/json')
+

@@ -2,26 +2,34 @@
 
 {%  block content %}
     <div class="row">
-        <div class="span11">
-            <ul class="nav nav-tabs" id="mw_tab">
-                <li class="active"><a href="#mw_tab_summary">Summary</a></li>
-                <li><a href="#mw_tab_chalkboard">Chalkboard</a></li>
-                <li><a href="#mw_tab_radar">Radar</a></li>
-                <li><a href="#mw_tab_performance">Performance</a></li>
-            </ul>
+        <div class="span2 offset3"><label id="mw_team_1">.</label></div>
+        <div class="span1"><label id="mw_score">.</label></div>
+        <div class="span2"><label id="mw_team_2">.</label></div>
 
-            <div class="tab-content">
-                <div class="tab-pane active" id="mw_tab_summary">asd</div>
-                <div class="tab-pane" id="mw_tab_chalkboard">rqwwqw.</div>
-                <div class="tab-pane" id="mw_tab_radar">ASDFaFSD</div>
-                <div class="tab-pane" id="mw_tab_performance">VEqwdv</div>
+        <div class="row">
+
+            <div class="span11">
+                <ul class="nav nav-tabs" id="mw_tab">
+                    <li class="active"><a href="#mw_tab_summary">Summary</a></li>
+                    <li><a href="#mw_tab_chalkboard">Chalkboard</a></li>
+                    <li><a href="#mw_tab_radar">Radar</a></li>
+                    <li><a href="#mw_tab_performance">Performance</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="mw_tab_summary">asd</div>
+                    <div class="tab-pane" id="mw_tab_chalkboard">rqwwqw.</div>
+                    <div class="tab-pane" id="mw_tab_radar">ASDFaFSD</div>
+                    <div class="tab-pane" id="mw_tab_performance">VEqwdv</div>
+                </div>
+
+                <script>
+                    $(function () {
+                        $('#mw_tab a:first').tab('show');
+                    })
+                </script>
             </div>
 
-            <script>
-                $(function () {
-                    $('#mw_tab a:first').tab('show');
-                })
-            </script>
         </div>
     </div>
 {% endblock %}
